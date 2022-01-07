@@ -1,39 +1,24 @@
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-    html {
-        background: black;
-        color: white;
-    }
+body {
+  color: #222;
+  background: #fff;
+}
+a {
+  color: #0033cc;
 }
 
-body {
+p {
+    color: #0033cc;
+}
+
+/* Стили Тёмной темы */
+body.dark-theme {
   color: #eee;
   background: #121212;
 }
-body a {
+body.dark-theme a {
   color: #809fff;
 }
 
-body p {
+body.dark-theme p {
   color: #809fff;
-}
-
-/*  mode light */
-@media (prefers-color-scheme: light) {
-    html {
-        background: white;
-        color: black;
-    }
-}
-
-body {
-  color: #eee;
-  background: #121212;
-}
-body a {
-  color: #ffffff;
-}
-
-body p {
-  color: #ffffff;
 }
