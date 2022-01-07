@@ -1,1 +1,65 @@
+<!--CSS Code-->
+<style>
+body {
+  overflow: hidden;
+  margin: 0;
+}
+</style>
+<!-- JS Code -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js">
+const path = new THREE.CatmullRomCurve3(points);
+
+// Create the tube geometry from the path
+const geometry = new THREE.TubeGeometry(path, 600, 8, 32, true);
+
+// Set a different color on each face
+for (let i = 0, j = geometry.faces.length; i < j; i++) {
+  geometry.faces[i].color = new THREE.Color("hsl("+Math.floor((Math.random()*20)+200)+", 60%, 60%)");
+}
+
+//Basic material
+const material = new THREE.MeshLambertMaterial({
+  side: THREE.BackSide,
+  vertexColors: THREE.FaceColors // We need to tell ThreeJs that the colors are coming from the faces
+});
+
+// Create a mesh
+const tube = new THREE.Mesh(geometry, material);
+
+// Add tube into the scene
+scene.add(tube);
+
+// Create a point light in our scene
+const light = new THREE.PointLight(0xffffff, 1, 100);
+scene.add(light);
+
+let percentage = 0;
+
+function render() {
+  percentage += 0.00025; // Speed
+
+  const p1 = path.getPointAt(percentage % 1),
+        p2 = path.getPointAt((percentage + 0.03) % 1);
+
+  camera.position.set(p1.x, p1.y, p1.z);
+  camera.lookAt(p2);
+
+  light.position.set(p2.x, p2.y, p2.z);
+
+  // Render the scene
+  renderer.render(scene, camera);
+
+  requestAnimationFrame(render);
+}
+
+requestAnimationFrame(render);
+
+function onWindowResize() {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+</script>
 <canvas></canvas> 
