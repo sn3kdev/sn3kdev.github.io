@@ -1,24 +1,12 @@
 body {
-  color: #222;
-  background: #fff;
-}
-a {
-  color: #0033cc;
-}
-
-p {
-    color: #0033cc;
-}
-
-/* Стили Тёмной темы */
-body.dark-theme {
   color: #eee;
   background: #121212;
 }
-body.dark-theme a {
+a {
   color: #809fff;
 }
 
-body.dark-theme p {
+p {
   color: #809fff;
 }
+
