@@ -1,0 +1,8 @@
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    html {
+        background: black;
+        color: white;
+    }
+}
+
