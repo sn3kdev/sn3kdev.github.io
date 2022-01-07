@@ -17,3 +17,23 @@ body a {
 body p {
   color: #809fff;
 }
+
+/*  mode light */
+@media (prefers-color-scheme: light) {
+    html {
+        background: white;
+        color: black;
+    }
+}
+
+body {
+  color: #eee;
+  background: #121212;
+}
+body a {
+  color: #ffffff;
+}
+
+body p {
+  color: #ffffff;
+}
